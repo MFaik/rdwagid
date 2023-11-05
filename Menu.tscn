@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6sve2s6182cu"]
+
+[ext_resource type="Texture2D" uid="uid://ni87bthfxvis" path="res://sprites/hill.png" id="1_5xs6g"]
+[ext_resource type="Script" path="res://Menu.gd" id="1_0208g"]
+
+[node name="Menu" type="Node2D"]
+scale = Vector2(3, 3)
+script = ExtResource("1_0208g")
+
+[node name="Hill" type="Sprite2D" parent="."]
+position = Vector2(640, 360)
+texture = ExtResource("1_5xs6g")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 142.667
+offset_top = 47.0
+offset_right = 244.667
+offset_bottom = 73.0
+text = "Rolling Down 
+"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 254.667
+offset_top = 111.0
+offset_right = 356.667
+offset_bottom = 137.0
+text = "With a Gun"
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 385.0
+offset_top = 161.333
+offset_right = 487.0
+offset_bottom = 187.333
+text = "Is Dangerous"
+
+[node name="Button" type="Button" parent="."]
+offset_left = 261.0
+offset_top = 179.333
+offset_right = 302.0
+offset_bottom = 210.333
+text = "Play"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

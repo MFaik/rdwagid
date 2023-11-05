@@ -1,0 +1,14 @@
+res://hill.tscn
+res://bullet.gd
+res://scripts/Player.gd
+res://bullet.tscn
+res://Boulder.gd
+res://WaveSpawner.gd
+res://Bat.gd
+res://boulder.tscn
+res://bat_bullet.gd
+res://scripts/WaveSpawner.gd
+res://scripts/Bat.gd
+res://Menu.tscn
+res://Menu.gd
+res://bat_bullet.tscn

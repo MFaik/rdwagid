@@ -1,0 +1,23 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1699180272
+bat.tscn::PackedScene::7407933235452045871::1699180272::0::1::::<><>::uid://b2yyek7gi8bxj::::res://sprites/bat.png<>res://scripts/Bat.gd
+bat_bullet.tscn::PackedScene::1690733002250695285::1699180272::0::1::::<><>::res://scripts/bat_bullet.gd<>uid://bw3k875khihi6::::res://sprites/bat_bullet.png
+boulder.tscn::PackedScene::7559770393005604464::1699180272::0::1::::<><>::res://scripts/Boulder.gd<>uid://j33l0u1sbaog::::res://sprites/boulder.png
+bullet.tscn::PackedScene::8460685242951695599::1699180272::0::1::::<><>::uid://cpnda5uyiv68p::::res://sprites/bullet.png<>res://scripts/bullet.gd
+hill.tscn::PackedScene::144291318189076637::1699180282::0::1::::<><>::res://scripts/WaveSpawner.gd<>uid://ni87bthfxvis::::res://sprites/hill.png<>uid://dqdx1t8wrpdvn::::res://sprites/mask.png<>res://scripts/Player.gd<>uid://b37rq6eb3vrc2::::res://sprites/rolling man.png<>uid://dfyakw3uracn5::::res://boulder.tscn
+::res://scripts/::1699180272
+Bat.gd::GDScript::-1::1699180204::0::1::::<>AnimatedSprite2D<>::
+bat_bullet.gd::GDScript::-1::1699180251::0::1::::<>Area2D<>::
+Boulder.gd::GDScript::-1::1699178508::0::1::::<>Area2D<>::
+bullet.gd::GDScript::-1::1699179133::0::1::::<>Area2D<>::
+Player.gd::GDScript::-1::1699179692::0::1::::<>CharacterBody2D<>::
+WaveSpawner.gd::GDScript::-1::1699178812::0::1::::<>Node2D<>::
+::res://sprites/::1699178411
+bat.png::CompressedTexture2D::4332529453971269731::1699177803::1699177839::1::::<><>::
+bat_bullet.png::CompressedTexture2D::3989045649525381947::1699177866::1699177868::1::::<><>::
+boulder.png::CompressedTexture2D::691223234571636810::1699178410::1699178411::1::::<><>::
+bullet.png::CompressedTexture2D::5852694691436360213::1699144748::1699175077::1::::<><>::
+hill.png::CompressedTexture2D::931030877693441438::1699142778::1699177848::1::::<><>::
+icon.svg::CompressedTexture2D::2277103288212479461::1699136369::1699175093::1::::<><>::
+mask.png::CompressedTexture2D::8289920653970245867::1699141078::1699175077::1::::<><>::
+rolling man.png::CompressedTexture2D::4418830789754198955::1699143037::1699175077::1::::<><>::

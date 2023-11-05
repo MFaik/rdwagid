@@ -1,0 +1,289 @@
+[gd_scene load_steps=29 format=3 uid="uid://cb5pshfexvov"]
+
+[ext_resource type="Script" path="res://scripts/WaveSpawner.gd" id="1_ac1iw"]
+[ext_resource type="Texture2D" uid="uid://ni87bthfxvis" path="res://sprites/hill.png" id="1_x6m66"]
+[ext_resource type="Texture2D" uid="uid://dqdx1t8wrpdvn" path="res://sprites/mask.png" id="2_b7nfs"]
+[ext_resource type="Script" path="res://scripts/Player.gd" id="3_qqsyf"]
+[ext_resource type="Texture2D" uid="uid://b37rq6eb3vrc2" path="res://sprites/rolling man.png" id="4_0bhn6"]
+
+[sub_resource type="Animation" id="Animation_2qmws"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HillParent:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -720)]
+}
+
+[sub_resource type="Animation" id="Animation_rnbaq"]
+resource_name = "hill"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HillParent:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-1280, -720)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_trv3u"]
+_data = {
+"RESET": SubResource("Animation_2qmws"),
+"hill": SubResource("Animation_rnbaq")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iu50m"]
+radius = 6.33334
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_apsrp"]
+atlas = ExtResource("4_0bhn6")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jn7ru"]
+atlas = ExtResource("4_0bhn6")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5e5ax"]
+atlas = ExtResource("4_0bhn6")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_55ciu"]
+atlas = ExtResource("4_0bhn6")
+region = Rect2(96, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x55l8"]
+atlas = ExtResource("4_0bhn6")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ns5d8"]
+atlas = ExtResource("4_0bhn6")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2cvx6"]
+atlas = ExtResource("4_0bhn6")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mandl"]
+atlas = ExtResource("4_0bhn6")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0cv28"]
+atlas = ExtResource("4_0bhn6")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lgojf"]
+atlas = ExtResource("4_0bhn6")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3hkcu"]
+atlas = ExtResource("4_0bhn6")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wnt0v"]
+atlas = ExtResource("4_0bhn6")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_10hqm"]
+atlas = ExtResource("4_0bhn6")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b8bkx"]
+atlas = ExtResource("4_0bhn6")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nxrsp"]
+atlas = ExtResource("4_0bhn6")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ra07p"]
+atlas = ExtResource("4_0bhn6")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a77id"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_apsrp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jn7ru")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5e5ax")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_55ciu")
+}],
+"loop": false,
+"name": &"falling",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x55l8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ns5d8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2cvx6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mandl")
+}],
+"loop": true,
+"name": &"flying",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0cv28")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lgojf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3hkcu")
+}],
+"loop": false,
+"name": &"jumping",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wnt0v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_10hqm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b8bkx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nxrsp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ra07p")
+}],
+"loop": true,
+"name": &"rolling",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ivpsx"]
+radius = 7.33334
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_th7bw"]
+size = Vector2(43, 20)
+
+[node name="Hill" type="Node2D"]
+scale = Vector2(3, 3)
+script = ExtResource("1_ac1iw")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "hill"
+libraries = {
+"": SubResource("AnimationLibrary_trv3u")
+}
+
+[node name="HillParent" type="Node2D" parent="."]
+z_index = -1
+position = Vector2(0, -720)
+
+[node name="Hill3" type="Sprite2D" parent="HillParent"]
+z_index = -1
+texture_filter = 1
+position = Vector2(1920, 1080)
+texture = ExtResource("1_x6m66")
+
+[node name="Hill2" type="Sprite2D" parent="HillParent"]
+z_index = -1
+texture_filter = 1
+position = Vector2(640, 1080)
+texture = ExtResource("1_x6m66")
+
+[node name="Hill" type="Sprite2D" parent="HillParent"]
+z_index = -1
+texture_filter = 1
+position = Vector2(640, 360)
+texture = ExtResource("1_x6m66")
+
+[node name="Mask" type="Sprite2D" parent="HillParent"]
+z_index = -1
+texture_filter = 1
+position = Vector2(960, 180)
+texture = ExtResource("2_b7nfs")
+
+[node name="Mask" type="Sprite2D" parent="HillParent/Mask"]
+z_index = -1
+texture_filter = 1
+position = Vector2(640, 360)
+texture = ExtResource("2_b7nfs")
+
+[node name="Player" type="CharacterBody2D" parent="." node_paths=PackedStringArray("lost")]
+position = Vector2(279.333, 186)
+script = ExtResource("3_qqsyf")
+lost = NodePath("../Lost")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("CapsuleShape2D_iu50m")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_a77id")
+animation = &"falling"
+autoplay = "rolling"
+frame = 3
+frame_progress = 1.0
+
+[node name="BulletSpawnPos" type="Node2D" parent="Player"]
+position = Vector2(9, -6.66666)
+
+[node name="Area2D" type="Area2D" parent="Player"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Area2D"]
+shape = SubResource("CircleShape2D_ivpsx")
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(279, 211)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+shape = SubResource("RectangleShape2D_th7bw")
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_left = 27.0
+offset_top = 306.0
+offset_right = 67.0
+offset_bottom = 329.0
+text = "Score: wow son mate"
+
+[node name="Lost" type="Label" parent="."]
+visible = false
+offset_left = 287.333
+offset_top = 23.6667
+offset_right = 354.333
+offset_bottom = 49.6667
+text = "You Lost"
+
+[node name="Button" type="Button" parent="Lost"]
+layout_mode = 0
+offset_left = 6.66669
+offset_top = 36.0
+offset_right = 63.6667
+offset_bottom = 67.0
+text = "Retry?"
+
+[connection signal="area_entered" from="Player/Area2D" to="Player" method="_on_area_2d_area_entered"]
+[connection signal="pressed" from="Lost/Button" to="." method="_on_button_pressed"]
